@@ -1,2 +1,11 @@
 ---
 # tasks file for atop
+- block:
+  - name: Install Atop for Debian OS
+    apt: name=atop state=latest
+  when: ansible_os_family == "Debian"
+
+- block:
+  - name: Install Atop for RedHat OS
+    yum: name=atop state=latest  
+  when: ansible_os_family == "RedHat"

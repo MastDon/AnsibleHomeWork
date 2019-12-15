@@ -1,2 +1,13 @@
 ---
 # tasks file for wget
+- block:
+  - name: Install wget for Debian OS
+    apt: name=wget state=latest
+
+  when: ansible_os_family == "Debian"
+
+- block:
+  - name: Install wget for RedHat OS
+    yum: name=wget state=latest
+    
+  when: ansible_os_family == "RedHat"

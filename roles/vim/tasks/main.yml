@@ -1,2 +1,13 @@
 ---
 # tasks file for vim
+- block:
+  - name: Install Vim for Debian OS
+    apt: name=vim state=latest
+
+  when: ansible_os_family == "Debian"
+
+- block:
+  - name: Install Vim for RedHat OS
+    yum: name=vim state=latest
+    
+  when: ansible_os_family == "RedHat"

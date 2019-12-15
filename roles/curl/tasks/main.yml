@@ -1,2 +1,13 @@
 ---
 # tasks file for curl
+- block:
+  - name: Install Curl for Debian OS
+    apt: name=curl state=latest
+
+  when: ansible_os_family == "Debian"
+
+- block:
+  - name: Install Curl for RedHat OS
+    yum: name=curl state=latest
+    
+  when: ansible_os_family == "RedHat"

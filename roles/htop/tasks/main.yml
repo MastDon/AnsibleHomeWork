@@ -1,2 +1,13 @@
 ---
 # tasks file for htop
+- block:
+  - name: Install Htop for Debian OS
+    apt: name=htop state=latest
+
+  when: ansible_os_family == "Debian"
+
+- block:
+  - name: Install Htop for RedHat OS
+    yum: name=htop state=latest
+    
+  when: ansible_os_family == "RedHat"

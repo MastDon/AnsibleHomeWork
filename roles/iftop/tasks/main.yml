@@ -1,2 +1,16 @@
 ---
 # tasks file for iftop
+- block:
+  - name: Install Iftop for Debian OS
+    apt: name=iftop state=latest
+  
+  when: ansible_os_family == "Debian"
+
+- block:
+  
+  - name: Install Iftop for RedHat OS
+    yum: name=iftop state=latest enablerepo=epel,ol7_latest
+    
+  
+    
+  when: ansible_os_family == "RedHat"

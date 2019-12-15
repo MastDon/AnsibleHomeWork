@@ -1,0 +1,8 @@
+---
+# tasks file for epel-release
+- name: Remove repository from a specific repo file
+  yum_repository:
+    name: epel
+    file: external_repos
+    state: absent
+  when: ansible_os_family == "RedHat"

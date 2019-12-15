@@ -1,2 +1,13 @@
 ---
 # tasks file for snmp
+- block:
+  - name: Install Snmp for Debian OS
+    apt: name=snmp state=latest
+
+  when: ansible_os_family == "Debian"
+
+- block:
+  - name: Install Snmp for RedHat OS
+    yum: name=snmp state=latest
+    
+  when: ansible_os_family == "RedHat"
