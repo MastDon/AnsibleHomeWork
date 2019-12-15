@@ -4,7 +4,7 @@
       monitoring:
         hosts:
           ubuntu:
-            ansible_host: 18.196.102.251
+            ansible_host: 35.158.97.245
             roles:
               - atop
               - curl
@@ -17,7 +17,7 @@
             ansible_user: ubuntu
             ansible_port: 22
           centos:
-            ansible_host: 54.93.224.149
+            ansible_host: 52.57.143.116
             roles:
               - curl
               - htop

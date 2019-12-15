@@ -8,6 +8,6 @@
 
 - block:
   - name: Install Snmp for RedHat OS
-    yum: name=snmp state=latest
+    yum: name=net-snmp state=latest
     
   when: ansible_os_family == "RedHat"

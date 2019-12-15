@@ -1,15 +1,23 @@
 ---
 # tasks file for iftop
 - block:
+#  - name: Install Iftop for Debian OS
+#    apt: name=iftop state=latest
   - name: Install Iftop for Debian OS
-    apt: name=iftop state=latest
-  
+    apt:
+      name: "{{ packages }}"
+    vars:
+     packages:
+     - libpcap0.8
+     - libpcap0.8-dev
+     - libncurses5
+     - libncurses5-dev
   when: ansible_os_family == "Debian"
 
 - block:
   
   - name: Install Iftop for RedHat OS
-    yum: name=iftop state=latest enablerepo=epel,ol7_latest
+    yum: name=iftop state=latest
     
   
     

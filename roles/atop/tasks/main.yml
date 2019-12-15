@@ -1,8 +1,19 @@
 ---
 # tasks file for atop
 - block:
-  - name: Install Atop for Debian OS
-    apt: name=atop state=latest
+ # - name: Install Atop for Debian OS
+ #   apt: name=atop state=latest
+  - name: Install Iftop for Debian OS
+    apt:
+      name: "{{ packages }}"
+    vars: 
+     packages:
+     - libc6
+     - libgcc1
+     - libncurses5
+     - libtinfo5
+     - lsb-base
+     - zlib1g 
   when: ansible_os_family == "Debian"
 
 - block:
