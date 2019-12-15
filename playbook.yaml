@@ -1,0 +1,12 @@
+---
+- name: I'll do something
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Provision role
+      include_role:
+        name: "{{ role }}"
+      with_items: "{{ roles }}"
+      loop_control:
+        loop_var: role
