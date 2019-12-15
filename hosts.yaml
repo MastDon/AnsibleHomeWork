@@ -3,18 +3,33 @@
     children: 
       monitoring:
         hosts:
-          grafana:
-            ansible_host: 18.185.59.17
+          ubuntu:
+            ansible_host: 18.196.102.251
             roles:
-              - nginx
-              - docker_tools
-              - grafana
-              - letsencrypt
-              - node-exporter
-              - prometheus
+              - atop
+              - curl
+              - htop
+              - iftop
+              - snmp
+              - vim
+              - wget
             ansible_ssh_private_key_file: ~/.ssh/key.pem
             ansible_user: ubuntu
-            ansible_port: 22      
+            ansible_port: 22
+          centos:
+            ansible_host: 54.93.224.149
+            roles:
+              - atop
+              - curl
+              - htop
+              - iftop
+              - snmp
+              - vim
+              - wget
+            ansible_ssh_private_key_file: ~/.ssh/key.pem
+            ansible_user: ec2-user
+            ansible_port: 22
+
     vars:
       ansible_become: yes
       ansible_become_method: sudo
