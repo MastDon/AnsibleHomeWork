@@ -1,29 +1,60 @@
-# Local .terraform directories
-**/.terraform/*
+provider "aws" {
+    region = "eu-central-1"
+}
 
-# .tfstate files
-*.tfstate
-*.tfstate.*
+resource "aws_security_group" "web_server" {
+name = "web_server"
+description = "OPen ports for webserver and ssh"
 
-# Crash log files
-crash.log
+dynamic "ingress" {
 
-# Ignore any .tfvars files that are generated automatically for each Terraform run. Most
-# .tfvars files are managed as part of configuration and so should be included in
-# version control.
-#
-# example.tfvars
+  for_each = [ "80","8080","22" ]
 
-# Ignore override files as they are usually used to override resources locally and so
-# are not checked in
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
+  content {
+    from_port = ingress.value
+    to_port = ingress.value
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
 
-# Include override files you do wish to add to version control using negated pattern
-#
-# !example_override.tf
+egress {
+from_port = 0
+to_port = 0
+protocol = "-1"
+cidr_blocks = ["0.0.0.0/0"]
 
-# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
-# example: *tfplan*
+}
+
+
+}
+
+resource "aws_instance" "Ubuntu" {
+    ami = "ami-0cc0a36f626a4fdf5" #ubuntu server
+    count = 1
+    vpc_security_group_ids = [aws_security_group.web_server.id]
+    
+    instance_type = "t2.micro"
+    key_name = "key"
+    tags = {
+        Name = "Ubuntu"
+        Group = "test"
+
+    }
+  
+}
+
+resource "aws_instance" "Amazon_Linux" {
+    ami = "ami-0d4c3eabb9e72650a" #centos server
+    count = 1
+    vpc_security_group_ids = [aws_security_group.web_server.id]
+    
+    instance_type = "t2.micro"
+    key_name = "key"
+    tags = {
+        Name = "Amazon_Linux"
+        Group = "test"
+
+    }
+  
+}
