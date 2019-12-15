@@ -13,7 +13,8 @@
      - libncurses5
      - libtinfo5
      - lsb-base
-     - zlib1g 
+     - zlib1g
+    
   when: ansible_os_family == "Debian"
 
 - block:
