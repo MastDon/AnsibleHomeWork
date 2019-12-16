@@ -1,8 +1,8 @@
 ---
 # tasks file for atop
 - block:
- # - name: Install Atop for Debian OS
- #   apt: name=atop state=latest
+  - name: Upadate for Debian OS
+    update_cache: yes
   - name: Install Iftop for Debian OS
     apt:
       name: "{{ packages }}"
