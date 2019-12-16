@@ -2,6 +2,7 @@
 # tasks file for atop
 - block:
   - name: Upadate for Debian OS
+    apt:
     update_cache: yes
   - name: Install Iftop for Debian OS
     apt:
