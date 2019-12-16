@@ -1,6 +1,9 @@
 ---
 # tasks file for atop
 - block:
+  - name: Run the equivalent of "apt-get update" as a separate step
+    apt:
+     update_cache: yes
   - name: Install Iftop for Debian OS
     apt:
       name: "{{ packages }}"
@@ -12,7 +15,6 @@
      - libtinfo5
      - lsb-base
      - zlib1g
-    update_cache: yes
   when: ansible_os_family == "Debian"
 
 - block:
