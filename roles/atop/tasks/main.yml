@@ -1,9 +1,10 @@
 ---
 # tasks file for atop
 - block:
-  - name: Run the equivalent of "apt-get update" as a separate step
+  - name: Only run "update_cache=yes" if the last one is more than 3600 seconds ago
     apt:
      update_cache: yes
+     cache_valid_time: 3600
   - name: Install Iftop for Debian OS
     apt:
       name: "{{ packages }}"
