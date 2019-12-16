@@ -31,7 +31,7 @@
      yum: name=java-1.8.0-openjdk state=latest
 
    - name: Ensure Jenkins Repository is Installed
-
+   
      yum_repository:
         name: jenkins
         state: present
@@ -51,5 +51,4 @@
         name: jenkins
         enabled: yes
         state: started
-        
   when: ansible_os_family == "RedHat"
