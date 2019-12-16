@@ -1,9 +1,6 @@
 ---
 # tasks file for atop
 - block:
-  - name: Upadate for Debian OS
-    apt:
-    update_cache: yes
   - name: Install Iftop for Debian OS
     apt:
       name: "{{ packages }}"
@@ -15,7 +12,7 @@
      - libtinfo5
      - lsb-base
      - zlib1g
-    
+    update_cache: yes
   when: ansible_os_family == "Debian"
 
 - block:
