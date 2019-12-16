@@ -4,7 +4,7 @@
       monitoring:
         hosts:
           ubuntu:
-            ansible_host: 18.185.118.1
+            ansible_host: 52.58.244.113
             roles:
               - atop
               - curl
@@ -18,18 +18,20 @@
             ansible_port: 22
             ansible_python_interpreter: /usr/bin/python3
           centos:
-            ansible_host: 35.158.124.52
+            ansible_host: 54.93.252.28
             roles:
+              - epel-release
+              - atop
               - curl
               - htop
               - iftop
               - snmp
               - vim
-              - wget
-              - atop             
+              - wget            
             ansible_ssh_private_key_file: ~/.ssh/key.pem
             ansible_user: ec2-user
             ansible_port: 22
+            ##ansible_python_interpreter: /usr/bin/python3
 
     vars:
       ansible_become: yes

@@ -1,8 +1,6 @@
 ---
 # tasks file for epel-release
-- name: Remove repository from a specific repo file
-  yum_repository:
-    name: epel
-    file: external_repos
-    state: absent
+
+- name: Enable EPEL
+  command: yum-config-manager --enable epel
   when: ansible_os_family == "RedHat"

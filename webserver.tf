@@ -44,15 +44,15 @@ resource "aws_instance" "Ubuntu" {
   
 }
 
-resource "aws_instance" "Amazon_Linux" {
-    ami = "ami-0d4c3eabb9e72650a" #centos server
+resource "aws_instance" "RedHat" {
+    ami = "ami-010fae13a16763bb4" #centos server
     count = 1
     vpc_security_group_ids = [aws_security_group.web_server.id]
     
     instance_type = "t2.micro"
     key_name = "key"
     tags = {
-        Name = "Amazon_Linux"
+        Name = "RedHat"
         Group = "test"
 
     }
