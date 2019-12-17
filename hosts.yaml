@@ -6,16 +6,16 @@
           ubuntu:
             ansible_host: 3.120.235.2
             roles:
-            #  - atop
-            #  - curl
-            #  - htop
-            #  - iftop
-              - jenkins
-            #  - letsencrypt
-              - nginx
-            #  - snmp
-            #  - vim
-            #  - wget 
+             - atop
+             - curl
+             - htop
+             - iftop
+             - jenkins
+             - letsencrypt
+             - nginx
+             - snmp
+             - vim
+             - wget 
              
              
             ansible_ssh_private_key_file: ~/.ssh/key.pem
@@ -28,17 +28,17 @@
           centos:
             ansible_host: 35.228.137.124
             roles:
-            #  - epel-release
-            #  - atop
-            #  - curl
-            #  - htop
-            #  - iftop
-            #  - jenkins
-            #  - letsencrypt
-            #  - nginx
-            #  - snmp
-            #  - vim
-            #  - wget
+             - epel-release
+             - atop
+             - curl
+             - htop
+             - iftop
+             - jenkins
+             - letsencrypt
+             - nginx
+             - snmp
+             - vim
+             - wget
                       
             ansible_ssh_private_key_file: ~/.ssh/google
             ansible_user: sleptsovilya
