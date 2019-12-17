@@ -46,7 +46,7 @@ resource "aws_instance" "Ubuntu" {
 
 resource "aws_instance" "RedHat" {
     ami = "ami-0d4c3eabb9e72650a" #centos server
-    count = 1
+    count = 0
     vpc_security_group_ids = [aws_security_group.web_server.id]
     
     instance_type = "t2.micro"

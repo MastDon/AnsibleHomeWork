@@ -4,41 +4,30 @@
       monitoring:
         hosts:
           ubuntu:
-            ansible_host: 35.158.81.70
+            ansible_host: 52.59.254.140
             roles:
-             - atop
-             - curl
-             - epel-release
-             - htop
-             - iftop
-             - jenkins
+             
+             - letsencrypt
              - nginx
-             - snmp
-             - vim
-             - wget
+             
+             
              
             ansible_ssh_private_key_file: ~/.ssh/key.pem
             ansible_user: ubuntu
             ansible_port: 22
             ansible_python_interpreter: /usr/bin/python3
+            admin_email: sleptsovilya@gmail.com 
+            domain_name: isd.pp.ua
+            
           centos:
             ansible_host: 35.228.137.124
             roles:
-             - atop
-             - curl
-             - epel-release
-             - htop
-             - iftop
-             - jenkins
-             - nginx
-             - snmp
-             - vim
-             - wget
+             
                       
             ansible_ssh_private_key_file: ~/.ssh/google
             ansible_user: sleptsovilya
             ansible_port: 22
-            #ansible_python_interpreter: /usr/bin/python3
+            
 
     vars:
       ansible_become: yes

@@ -1,0 +1,4 @@
+---
+# defaults file for letsencrypt
+admin_email: sleptsovilya@gmail.com
+domain_name: isd.pp.ua
