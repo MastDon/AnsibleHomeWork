@@ -23,6 +23,13 @@
      changed_when: false
      register: result
 
+   - name: Remove default jenkins config
+     file: name=/etc/default/jenkins state=absent
+
+   - name: Install system nginx config
+     template:
+      src: templates/jenkins.j2
+      dest: /etc/default/jenkins
    
   when: ansible_os_family == "Debian"
 
@@ -45,7 +52,7 @@
      yum:
        name: jenkins
        state: latest
-
+   
    - name: Enable and Start the Jenkins Service
      service:
         name: jenkins
