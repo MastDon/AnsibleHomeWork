@@ -8,7 +8,7 @@ description = "OPen ports for webserver and ssh"
 
 dynamic "ingress" {
 
-  for_each = [ "80","8080","22" ]
+  for_each = [ "80","8080","22","443" ]
 
   content {
     from_port = ingress.value
